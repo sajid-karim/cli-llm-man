@@ -1,2 +1,5 @@
 venv
 cli_llm_man.egg-info
+__pycache__
+/cli_llm_man/__pycache__
+cli_llm_man/__pycache__/*

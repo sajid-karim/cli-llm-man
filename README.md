@@ -114,6 +114,35 @@ cli-llm-man interactive
 # generate "count lines in all python files"
 # exit
 ```
+
+### Alias Setup
+
+To simplify running the CLI LLM Man tool, you can add a shortcut alias to your shell profile. This alias allows you to run the tool using the command `llm-man` instead of typing out `cli-llm-man`.
+
+To set up the alias, run the following command in your terminal:
+
+```bash
+setup-llm-man-alias
+```
+
+This command will add the alias to your shell profile (e.g. `.bashrc`, `.bash_profile`, or `.zshrc`). After running the command, reload your shell (or source the profile) with:
+
+```bash
+source ~/.bashrc
+# or
+source ~/.bash_profile
+# or for zsh users:
+source ~/.zshrc
+```
+
+Now you can run the tool using the shorter command. For example:
+
+```bash
+llm-man summary ls
+llm-man example grep
+llm-man generate "find all PDF files modified in the last 7 days"
+```
+
 ### Caching
 
 By default, responses are cached to improve performance and reduce API calls. The cache is stored in ~/.cli_llm_man/cache/. To disable caching, set use_cache: False in your config file.

@@ -1,11 +1,9 @@
 from setuptools import setup, find_packages
 import os
 
-# Read requirements from requirements.txt file
 def read_requirements():
     with open('requirements.txt') as f:
-        return [line.strip() for line in f 
-                if line.strip() and not line.startswith('//') and not line.startswith('#')]
+        return [line.strip() for line in f if line.strip() and not line.startswith('//') and not line.startswith('#')]
 
 setup(
     name="cli-llm-man",
@@ -16,6 +14,7 @@ setup(
     entry_points={
         "console_scripts": [
             "cli-llm-man=cli_llm_man.main:cli",
+            "setup-llm-man-alias=cli_llm_man.setup_alias:setup_alias",
         ],
     },
 )
