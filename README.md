@@ -26,7 +26,7 @@ pip install -e .
 ### Option 2: Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/cli-llm-man.git
+git clone https://github.com/sajid-karim/cli-llm-man.git
 cd cli-llm-man
 pip install -r requirements.txt
 ```
