@@ -18,7 +18,9 @@ To install the CLI LLM Man tool, you can either clone the repository or install 
 ### Option 1: Install via pip
 
 ```bash
-pip install .
+python3 -m venv ~/venvs/cli-llm-man
+source ~/venvs/cli-llm-man/bin/activate
+pip install -e .
 ```
 
 ### Option 2: Clone the repository
