@@ -1,27 +1,21 @@
 from setuptools import setup, find_packages
+import os
+
+# Read requirements from requirements.txt file
+def read_requirements():
+    with open('requirements.txt') as f:
+        return [line.strip() for line in f 
+                if line.strip() and not line.startswith('//') and not line.startswith('#')]
 
 setup(
-    name='cli-llm-man',
-    version='0.1.0',
-    description='A CLI tool for generating man page summaries and commands using LLMs.',
-    author='Your Name',
-    author_email='your.email@example.com',
-    url='https://github.com/yourusername/cli-llm-man',
+    name="cli-llm-man",
+    version="0.1.0",
     packages=find_packages(),
-    install_requires=[
-        'click',
-        'pyyaml',
-        'requests',  # Assuming requests is needed for LLM API calls
-    ],
+    include_package_data=True,
+    install_requires=read_requirements(),
     entry_points={
-        'console_scripts': [
-            'cli-llm-man=cli_llm_man.main:cli',
+        "console_scripts": [
+            "cli-llm-man=cli_llm_man.main:cli",
         ],
     },
-    classifiers=[
-        'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: MIT License',
-        'Operating System :: OS Independent',
-    ],
-    python_requires='>=3.6',
 )

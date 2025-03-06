@@ -20,17 +20,39 @@ except ImportError:
 from cli_llm_man.cache import ResponseCache
 
 class LLMInterface:
-    def __init__(self, api_key: str, provider: str = "openai", model: Optional[str] = None, use_cache: bool = True):
+    def __init__(self, api_key: Optional[str] = None, provider: Optional[str] = None, model: Optional[str] = None, use_cache: bool = True):
         """
         Initialize the LLM interface with an API key, provider, and model.
+        If api_key is not provided, will look for OPENAI_API_KEY or ANTH_API_KEY in environment.
 
         Args:
-            api_key: API key for the selected provider
-            provider: "openai", "anthropic", or "custom"
+            api_key: API key for the selected provider (optional if env vars are set)
+            provider: "openai", "anthropic", or "custom" (optional if env vars are set)
             model: API-specific model name. If None, uses provider-specific defaults
+            use_cache: Whether to cache responses
         """
-        self.api_key = api_key
-        self.provider = provider.lower()
+        # Auto-detect provider and API key if not explicitly provided
+        if api_key is None:
+            openai_key = os.environ.get("OPENAI_API_KEY")
+            anthropic_key = os.environ.get("ANTH_API_KEY")
+            
+            if openai_key:
+                self.api_key = openai_key
+                self.provider = "openai"
+            elif anthropic_key:
+                self.api_key = anthropic_key
+                self.provider = "anthropic"
+            else:
+                error_msg = (
+                    "No API key found. Please set one of the following environment variables:\n"
+                    "For OpenAI: export OPENAI_API_KEY='your-key-here'\n"
+                    "For Anthropic: export ANTH_API_KEY='your-key-here'"
+                )
+                raise ValueError(error_msg)
+        else:
+            # Use provided API key with specified or default provider
+            self.api_key = api_key
+            self.provider = provider.lower() if provider else "openai"
         
         # Set default models based on provider
         if model is None:
@@ -42,6 +64,8 @@ class LLMInterface:
                 self.model = "default-model"
         else:
             self.model = model
+            
+        print(f"Using {self.provider} with model {self.model}")
             
         # Initialize clients based on provider
         if self.provider == "openai":

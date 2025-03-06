@@ -1,19 +1,39 @@
-# Example usage of the CLI LLM Man tool
+#!/usr/bin/env python3
+"""Example usage of the CLI LLM Man tool"""
 
-from cli_llm_man import main
+import os
+import subprocess
+from click.testing import CliRunner
+from cli_llm_man.main import cli
 
-def run_example():
-    # Example command to generate a summary for the 'ls' command
+def run_example_using_cli_runner():
+    """Run examples using Click's testing utilities"""
+    runner = CliRunner()
+    
     print("Summary for 'ls':")
-    main.cli.invoke(main.summary, 'ls')
-
-    # Example command to show usage examples for the 'grep' command
+    result = runner.invoke(cli, ['summary', 'ls'])
+    print(result.output)
+    
     print("\nUsage examples for 'grep':")
-    main.cli.invoke(main.example, 'grep')
-
-    # Example command to generate a command based on user intent
+    result = runner.invoke(cli, ['example', 'grep'])
+    print(result.output)
+    
     print("\nGenerated command for intent 'list all files':")
-    main.cli.invoke(main.generate, "list all files")
+    result = runner.invoke(cli, ['generate', 'list all files'])
+    print(result.output)
+
+def run_example_using_subprocess():
+    """Run examples using actual command-line invocation"""
+    print("Summary for 'ls':")
+    subprocess.run(["python", "-m", "cli_llm_man.main", "summary", "ls"])
+    
+    print("\nUsage examples for 'grep':")
+    subprocess.run(["python", "-m", "cli_llm_man.main", "example", "grep"])
+    
+    print("\nGenerated command for intent 'list all files':")
+    subprocess.run(["python", "-m", "cli_llm_man.main", "generate", "list all files"])
 
 if __name__ == "__main__":
-    run_example()
+    # Choose one of these methods
+    run_example_using_cli_runner()
+    # run_example_using_subprocess()

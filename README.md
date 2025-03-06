@@ -1,12 +1,15 @@
 # CLI LLM Man
 
-CLI LLM Man is a command-line interface tool designed to generate summaries, examples, and custom commands based on user intent using man pages and a language model API. This tool aims to simplify the process of retrieving and understanding command-line documentation.
+CLI LLM Man is a command-line interface tool designed to generate summaries, examples, and custom commands based on user intent using man pages and large language models (LLMs). This tool aims to simplify the process of retrieving and understanding command-line documentation.
 
 ## Features
 
-- Generate concise summaries of man pages.
-- Display usage examples for specific commands.
-- Create custom commands based on natural language descriptions.
+- Generate concise summaries of man pages
+- Display practical usage examples for specific commands
+- Create custom commands based on natural language descriptions
+- Interactive mode for continuous querying
+- Support for multiple LLM providers (OpenAI and Anthropic)
+- Response caching to reduce API calls and improve speed
 
 ## Installation
 
@@ -32,10 +35,15 @@ Before using the tool, you need to configure your LLM API key. You can do this i
 
 ### Option 1: Environment Variable
 
-Set the environment variable `LLM_API_KEY`:
+Set one of the following environment variables:
 
+# For OpenAI (preferred)
 ```bash
-export LLM_API_KEY=your_key_here
+export OPENAI_API_KEY='your-key-here'
+```
+# For Anthropic
+```bash
+export ANTH_API_KEY='your-key-here'
 ```
 
 ### Option 2: Configuration File
@@ -43,7 +51,15 @@ export LLM_API_KEY=your_key_here
 Create a configuration file at `~/.cli_llm_man/config.yaml` with the following content:
 
 ```yaml
-LLM_API_KEY: your_key_here
+# For OpenAI
+LLM_API_KEY: your_openai_key_here
+PROVIDER: openai  # Optional, defaults to openai
+MODEL: gpt-4o    # Optional, defaults to gpt-4o
+
+# OR for Anthropic
+LLM_API_KEY: your_anthropic_key_here
+PROVIDER: anthropic
+MODEL: claude-3-opus-20240229  # Optional
 ```
 
 You can find a sample configuration file in `config.example.yaml`.
@@ -57,7 +73,11 @@ Once installed and configured, you can use the CLI LLM Man tool with the followi
 To generate a summary for a given command:
 
 ```bash
-python -m cli_llm_man.main summary <command_name>
+# Using the installed command
+cli-llm-man summary ls
+
+# OR using the module directly
+python -m cli_llm_man.main summary ls
 ```
 
 ### Show Usage Examples
@@ -65,7 +85,10 @@ python -m cli_llm_man.main summary <command_name>
 To display usage examples for a specific command:
 
 ```bash
-python -m cli_llm_man.main example <command_name>
+cli-llm-man example grep
+
+# OR
+python -m cli_llm_man.main example grep
 ```
 
 ### Generate Command
@@ -73,12 +96,37 @@ python -m cli_llm_man.main example <command_name>
 To create a command based on your intent:
 
 ```bash
-python -m cli_llm_man.main generate "<user intent>"
+cli-llm-man generate "find all PDF files modified in the last 7 days"
+
+# OR
+python -m cli_llm_man.main generate "find all PDF files modified in the last 7 days"
 ```
+
+### Interactive Mode
+For continuous interaction with the tool:
+
+```bash
+cli-llm-man interactive
+
+# Then type commands like:
+# summary ls
+# example grep
+# generate "count lines in all python files"
+# exit
+```
+### Caching
+
+By default, responses are cached to improve performance and reduce API calls. The cache is stored in ~/.cli_llm_man/cache/. To disable caching, set use_cache: False in your config file.
 
 ## Troubleshooting
 
-If you encounter any issues, please ensure that your API key is set correctly and that all dependencies are installed. Check the `tests/` directory for unit tests to verify functionality.
+If you encounter any issues, please ensure that:
+
+- Your API key is set correctly
+- The required packages are installed (openai for OpenAI, anthropic for Claude)
+- You have internet connectivity to reach the API endpoints
+- You have the necessary permissions to execute the man command on your system
+- Check the tests directory for unit tests to verify functionality.
 
 ## Contributing
 
