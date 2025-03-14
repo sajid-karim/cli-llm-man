@@ -1,4 +1,4 @@
-name: Publish Python Package
+name: Publish SmartMan Package
 
 on:
   release:
@@ -23,15 +23,6 @@ jobs:
     
     - name: Build package
       run: python -m build
-    
-    - name: Publish package to TestPyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        user: __token__
-        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-        repository_url: https://test.pypi.org/legacy/
-        skip_existing: true
-        verbose: true
     
     - name: Publish package to PyPI
       if: startsWith(github.ref, 'refs/tags')  # Only publish to PyPI when the commit is tagged

@@ -154,3 +154,36 @@ llm-man generate "find all PDF files modified in the last 7 days"
 ### Caching
 
 By default, responses are cached to improve performance and reduce API calls. The cache is stored in ~/.smartman/cache/. To disable caching, set use_cache: False in your config file.
+
+## Testing
+
+SmartMan has a comprehensive test suite designed to ensure reliability and make contributions easier.
+
+To run the tests:
+
+```bash
+pip install pytest
+pytest
+```
+
+The test suite includes:
+- Unit tests for core functionality
+- Mock-based tests to avoid API dependencies
+- Tests for error handling and edge cases
+- Examples of testing techniques for contributors
+
+For more details on the testing approach and how to add new tests, see [tests/README.md](tests/README.md).
+
+## Contributing
+
+Contributions are welcome! Please read the [contributing.md](contributing.md) guidelines for how to contribute to this project.
+
+Before submitting a pull request:
+1. Ensure your code adheres to the project's coding style
+2. Add tests for any new functionality
+3. Verify that all tests pass with `pytest`
+4. Update documentation as needed
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
