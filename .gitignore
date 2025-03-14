@@ -12,3 +12,10 @@ cli_llm_man/__pycache__/*
 .env.test.local
 .env.production.local
 *.egg-info
+dist/
+build/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
