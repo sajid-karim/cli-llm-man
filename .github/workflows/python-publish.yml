@@ -29,6 +29,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install -e .
     
+    - name: Verify package name and version
+      run: |
+        python -c "import smartman; print(f'Testing smartman version: {smartman.__version__}')"
+    
     - name: Run tests
       run: |
         pytest
@@ -56,6 +60,8 @@ jobs:
     - name: Check package
       run: |
         python -m twine check dist/*
+        # Verify that the package name is correct
+        ls dist/ | grep -i "smartman-"
     
     - name: Publish to PyPI
       if: startsWith(github.ref, 'refs/tags/v')

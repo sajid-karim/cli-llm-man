@@ -24,6 +24,12 @@ jobs:
     - name: Build package
       run: python -m build
     
+    - name: Verify package name
+      run: |
+        ls dist/ | grep -i "smartman-"
+        pip install -e .
+        python -c "import smartman; print(f'Publishing smartman version: {smartman.__version__}')"
+    
     - name: Publish package to PyPI
       if: startsWith(github.ref, 'refs/tags')  # Only publish to PyPI when the commit is tagged
       uses: pypa/gh-action-pypi-publish@release/v1
