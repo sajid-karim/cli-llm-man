@@ -1,6 +1,6 @@
-# CLI LLM Man
+# SmartMan
 
-CLI LLM Man is a command-line interface tool designed to generate summaries, examples, and custom commands based on user intent using man pages and large language models (LLMs). This tool aims to simplify the process of retrieving and understanding command-line documentation.
+SmartMan is a command-line interface tool designed to generate summaries, examples, and custom commands based on user intent using man pages and large language models (LLMs). This tool aims to simplify the process of retrieving and understanding command-line documentation.
 
 ## Features
 
@@ -13,13 +13,19 @@ CLI LLM Man is a command-line interface tool designed to generate summaries, exa
 
 ## Installation
 
-To install the CLI LLM Man tool, you can either clone the repository or install it via pip.
+To install the SmartMan tool, you can either install via pip or clone the repository.
 
 ### Option 1: Install via pip
 
 ```bash
-python3 -m venv ~/venvs/cli-llm-man
-source ~/venvs/cli-llm-man/bin/activate
+pip install smartman
+```
+
+For development:
+
+```bash
+python3 -m venv ~/venvs/smartman
+source ~/venvs/smartman/bin/activate
 pip install -e .
 ```
 
@@ -68,7 +74,7 @@ You can find a sample configuration file in `config.example.yaml`.
 
 ## Usage
 
-Once installed and configured, you can use the CLI LLM Man tool with the following commands:
+Once installed and configured, you can use the SmartMan tool with the following commands:
 
 ### Generate Summary
 
@@ -119,12 +125,12 @@ cli-llm-man interactive
 
 ### Alias Setup
 
-To simplify running the CLI LLM Man tool, you can add a shortcut alias to your shell profile. This alias allows you to run the tool using the command `llm-man` instead of typing out `cli-llm-man`.
+To simplify running the SmartMan tool, you can add a shortcut alias to your shell profile. This alias allows you to run the tool using the command `llm-man` instead of typing out `smartman`.
 
 To set up the alias, run the following command in your terminal:
 
 ```bash
-setup-llm-man-alias
+setup-smartman-alias
 ```
 
 This command will add the alias to your shell profile (e.g. `.bashrc`, `.bash_profile`, or `.zshrc`). After running the command, reload your shell (or source the profile) with:
@@ -147,22 +153,4 @@ llm-man generate "find all PDF files modified in the last 7 days"
 
 ### Caching
 
-By default, responses are cached to improve performance and reduce API calls. The cache is stored in ~/.cli_llm_man/cache/. To disable caching, set use_cache: False in your config file.
-
-## Troubleshooting
-
-If you encounter any issues, please ensure that:
-
-- Your API key is set correctly
-- The required packages are installed (openai for OpenAI, anthropic for Claude)
-- You have internet connectivity to reach the API endpoints
-- You have the necessary permissions to execute the man command on your system
-- Check the tests directory for unit tests to verify functionality.
-
-## Contributing
-
-Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+By default, responses are cached to improve performance and reduce API calls. The cache is stored in ~/.smartman/cache/. To disable caching, set use_cache: False in your config file.

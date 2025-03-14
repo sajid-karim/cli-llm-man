@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 class ResponseCache:
     def __init__(self, cache_dir=None, ttl_hours=24):
         if cache_dir is None:
-            cache_dir = os.path.expanduser('~/.cli_llm_man/cache')
+            cache_dir = os.path.expanduser('~/.smartman/cache')
         self.cache_dir = cache_dir
         self.ttl = timedelta(hours=ttl_hours)
         

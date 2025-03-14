@@ -1,6 +1,6 @@
-# Contributing to CLI LLM Man
+# Contributing to Smartman
 
-Thank you for considering contributing to CLI LLM Man! Here's how you can help:
+Thank you for considering contributing to Smartman! Here's how you can help:
 
 ## Code Contributions
 

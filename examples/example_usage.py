@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Example usage of the CLI LLM Man tool"""
+"""Example usage of the Smartman tool"""
 
 import os
 import subprocess

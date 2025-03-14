@@ -10,7 +10,7 @@ def read_long_description():
         return f.read()
 
 setup(
-    name="cli-llm-man",
+    name="smartman",
     version="0.1.0",
     packages=find_packages(),
     include_package_data=True,
@@ -31,8 +31,8 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "cli-llm-man=cli_llm_man.main:cli",
-            "setup-llm-man-alias=cli_llm_man.setup_alias:setup_alias",
+            "smartman=cli_llm_man.main:cli",
+            "setup-smartman-alias=cli_llm_man.setup_alias:setup_alias",
         ],
     },
 )

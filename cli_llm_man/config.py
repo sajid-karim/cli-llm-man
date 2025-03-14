@@ -2,7 +2,7 @@ import os
 import yaml
 
 def load_config():
-    config_path = os.path.expanduser('~/.cli_llm_man/config.yaml')
+    config_path = os.path.expanduser('~/.smartman/config.yaml')
     if os.path.exists(config_path):
         with open(config_path, 'r') as file:
             config = yaml.safe_load(file) or {}

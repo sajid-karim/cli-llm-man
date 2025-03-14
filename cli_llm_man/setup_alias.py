@@ -8,7 +8,7 @@ console = Console()
 def setup_alias():
     """Add the 'llm-man' alias to the user's shell profile."""
     console.print(Panel(
-        "[bold]CLI LLM Man - Alias Setup[/bold]\n\n"
+        "[bold]SmartMan - Alias Setup[/bold]\n\n"
         "This will add an alias 'llm-man' to your shell profile so you can run the tool using a shorter command.",
         border_style="green"
     ))
@@ -37,7 +37,7 @@ def setup_alias():
             return True
     
     with open(profile_file, 'a') as f:
-        f.write("\n# CLI LLM Man alias\nalias llm-man='cli-llm-man'\n")
+        f.write("\n# SmartMan alias\nalias llm-man='smartman'\n")
     
     console.print(f"[bold green]Alias 'llm-man' added to {profile_file}[/bold green]")
     console.print(f"\nRun [bold cyan]source {profile_file}[/bold cyan] to load the alias in your current session.")
@@ -47,7 +47,7 @@ def setup_alias():
         "[bold cyan]llm-man example grep[/bold cyan]\n"
         "[bold cyan]llm-man generate \"find all pdf files\"[/bold cyan]\n"
         "[bold cyan]llm-man interactive[/bold cyan]",
-        title="CLI LLM Man Usage",
+        title="SmartMan Usage",
         border_style="blue"
     ))
     return True

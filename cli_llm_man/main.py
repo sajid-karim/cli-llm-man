@@ -14,7 +14,7 @@ console = Console()
 def check_first_run():
     """Check if this is the first time running the tool."""
     home = os.path.expanduser("~")
-    config_dir = os.path.join(home, ".cli_llm_man")
+    config_dir = os.path.join(home, ".smartman")
     flag_file = os.path.join(config_dir, ".first_run_complete")
     
     # Create config directory if it doesn't exist
@@ -23,7 +23,7 @@ def check_first_run():
         
     if not os.path.exists(flag_file):
         console.print(Panel(
-            "[bold]Welcome to CLI LLM Man![/bold]\n\n"
+            "[bold]Welcome to Smartman![/bold]\n\n"
             "For a shorter command, run: [cyan]setup-llm-man-alias[/cyan]\n"
             "This will add an alias called 'llm-man' to your shell profile.", 
             border_style="green"
@@ -37,7 +37,7 @@ def check_first_run():
 
 @click.group()
 def cli():
-    """CLI LLM Man: Generate man page summaries and commands."""
+    """Smartman: Generate man page summaries and commands."""
     check_first_run()
 
 @cli.command()
@@ -112,7 +112,7 @@ def interactive():
     config = load_config()
     llm = LLMInterface(api_key=config.get('LLM_API_KEY'))
     
-    console.print(Panel("[bold]CLI LLM Man Interactive Mode[/bold]\nType 'exit' to quit.", 
+    console.print(Panel("[bold]Smartman Interactive Mode[/bold]\nType 'exit' to quit.", 
                         border_style="blue"))
     
     while True:

@@ -6,7 +6,7 @@ import subprocess
 
 def run_tests():
     """Run a series of commands to test the CLI tool"""
-    print("Testing CLI LLM Man tool...")
+    print("Testing Smartman tool...")
     
     # Check if API key is set
     if not os.environ.get('LLM_API_KEY'):
