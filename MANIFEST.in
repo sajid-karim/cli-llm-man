@@ -1,3 +1,4 @@
 include README.md
 include LICENSE
 include config.example.yaml
+include requirements.txt
