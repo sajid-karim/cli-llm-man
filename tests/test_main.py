@@ -8,7 +8,7 @@ It verifies that the command-line interface works as expected.
 import pytest
 import os
 from unittest.mock import patch, MagicMock
-from cli_llm_man.main import cli
+from smartman.main import cli
 from click.testing import CliRunner
 
 # Import test data from conftest
@@ -27,7 +27,7 @@ def setup_env():
 # Mock LLM interface
 @pytest.fixture(autouse=True)
 def mock_llm():
-    with patch('cli_llm_man.llm_interface.LLMInterface') as mock:
+    with patch('smartman.llm_interface.LLMInterface') as mock:
         instance = MagicMock()
         instance.generate_summary.return_value = "This is a mock summary of the command"
         instance.generate_example.return_value = "Example usage of the command"
@@ -38,7 +38,7 @@ def mock_llm():
 # Mock man page retriever
 @pytest.fixture(autouse=True)
 def mock_man_retriever():
-    with patch('cli_llm_man.man_retriever.get_man_page') as mock:
+    with patch('smartman.man_retriever.get_man_page') as mock:
         mock.return_value = "Mock man page content"
         yield mock
 
@@ -189,7 +189,7 @@ class TestInteractions:
         # still completes with non-zero exit code or returns an error message
         
         # Make our mock_llm_interface fixture still apply but set up this mock to throw an error
-        with patch('cli_llm_man.main.man_retriever.get_man_page') as mock_get:
+        with patch('smartman.main.man_retriever.get_man_page') as mock_get:
             # Set up a response, but let the LLM raise the error
             mock_get.return_value = "Mock man page content"
             

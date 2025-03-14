@@ -1,5 +1,5 @@
 # Smartman Configuration Example
-# Save this as ~/.cli_llm_man/config.yaml after updating with your values
+# Save this as ~/.smartman/config.yaml after updating with your values
 
 # API Key Configuration - Only one is required
 # ------------------------------------------

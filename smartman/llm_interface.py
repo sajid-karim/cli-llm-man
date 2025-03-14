@@ -17,7 +17,7 @@ except ImportError:
     ANTHROPIC_AVAILABLE = False
 
 # Modify llm_interface.py to use caching
-from cli_llm_man.cache import ResponseCache
+from smartman.cache import ResponseCache
 
 class LLMInterface:
     def __init__(self, api_key: Optional[str] = None, provider: Optional[str] = None, model: Optional[str] = None, use_cache: bool = True):

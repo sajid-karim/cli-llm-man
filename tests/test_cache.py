@@ -12,7 +12,7 @@ import os
 import tempfile
 import time
 from unittest.mock import patch, MagicMock
-from cli_llm_man.cache import ResponseCache
+from smartman.cache import ResponseCache
 
 
 class TestResponseCache:
@@ -140,7 +140,7 @@ class TestCacheIntegration:
         # Instead we'll focus on the overall command execution
         
         # Import here to avoid circular imports with fixtures
-        from cli_llm_man.main import cli
+        from smartman.main import cli
         
         # Run the command twice - second run should use cache if implemented
         result1 = cli_runner.invoke(cli, ['summary', 'ls'])
@@ -159,7 +159,7 @@ class TestCacheIntegration:
         This is a direct unit test of the cache rather than integration test,
         which avoids issues with multi-level mocking.
         """
-        from cli_llm_man.cache import ResponseCache
+        from smartman.cache import ResponseCache
         import tempfile
         
         # Create a temporary cache directory

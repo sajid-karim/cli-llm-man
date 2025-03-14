@@ -17,7 +17,7 @@ setup(
     install_requires=read_requirements(),
     long_description=read_long_description(),
     long_description_content_type="text/markdown",
-    url="https://github.com/sajid-karim/cli-llm-man",
+    url="https://github.com/sajid-karim/smartman",
     author="Sajid karim",
     author_email="sajidkareem1914@gmail.com",
     license="MIT",
@@ -31,8 +31,8 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "smartman=cli_llm_man.main:cli",
-            "setup-smartman-alias=cli_llm_man.setup_alias:setup_alias",
+            "smartman=smartman.main:cli",
+            "setup-smartman-alias=smartman.setup_alias:setup_alias",
         ],
     },
 )

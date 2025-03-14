@@ -10,9 +10,9 @@ This module demonstrates:
 import pytest
 import os
 from unittest.mock import patch, MagicMock, call
-from cli_llm_man.main import cli
+from smartman.main import cli
 from click.testing import CliRunner
-from cli_llm_man.llm_interface import LLMInterface
+from smartman.llm_interface import LLMInterface
 
 # Setup and teardown environment variables for testing
 @pytest.fixture(autouse=True)
@@ -27,7 +27,7 @@ def setup_env():
 @pytest.fixture
 def mock_llm():
     """Mock the LLM interface to avoid actual API calls"""
-    with patch('cli_llm_man.llm_interface.LLMInterface') as mock_llm:
+    with patch('smartman.llm_interface.LLMInterface') as mock_llm:
         instance = MagicMock()
         instance.generate_summary.return_value = "Mock summary of the command"
         instance.generate_example.return_value = "Mock usage examples"
@@ -38,7 +38,7 @@ def mock_llm():
 @pytest.fixture
 def mock_man_page():
     """Mock the man page retriever"""
-    with patch('cli_llm_man.man_retriever.get_man_page') as mock_get:
+    with patch('smartman.man_retriever.get_man_page') as mock_get:
         mock_get.return_value = "Mock man page content"
         yield mock_get
 
@@ -155,7 +155,7 @@ class TestAdvancedMocking:
         based on the arguments it receives.
         """
         # Create a mock that responds differently based on the command
-        with patch('cli_llm_man.main.LLMInterface') as mock_llm:
+        with patch('smartman.main.LLMInterface') as mock_llm:
             instance = MagicMock()
             
             # Create a side_effect function that returns different values based on input
@@ -185,7 +185,7 @@ class TestAdvancedMocking:
         on successive calls to the same method.
         """
         # Create a mock that changes behavior over time
-        with patch('cli_llm_man.main.LLMInterface') as mock_llm:
+        with patch('smartman.main.LLMInterface') as mock_llm:
             instance = MagicMock()
             
             # Return different values on successive calls

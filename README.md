@@ -32,8 +32,8 @@ pip install -e .
 ### Option 2: Clone the repository
 
 ```bash
-git clone https://github.com/sajid-karim/cli-llm-man.git
-cd cli-llm-man
+git clone https://github.com/sajid-karim/smartman.git
+cd smartman
 pip install -r requirements.txt
 ```
 
@@ -56,7 +56,7 @@ export ANTH_API_KEY='your-key-here'
 
 ### Option 2: Configuration File
 
-Create a configuration file at `~/.cli_llm_man/config.yaml` with the following content:
+Create a configuration file at `~/.smartman/config.yaml` with the following content:
 
 ```yaml
 # For OpenAI
@@ -82,10 +82,10 @@ To generate a summary for a given command:
 
 ```bash
 # Using the installed command
-cli-llm-man summary ls
+smartman summary ls
 
 # OR using the module directly
-python -m cli_llm_man.main summary ls
+python -m smartman.main summary ls
 ```
 
 ### Show Usage Examples
@@ -93,10 +93,10 @@ python -m cli_llm_man.main summary ls
 To display usage examples for a specific command:
 
 ```bash
-cli-llm-man example grep
+smartman example grep
 
 # OR
-python -m cli_llm_man.main example grep
+python -m smartman.main example grep
 ```
 
 ### Generate Command
@@ -104,17 +104,17 @@ python -m cli_llm_man.main example grep
 To create a command based on your intent:
 
 ```bash
-cli-llm-man generate "find all PDF files modified in the last 7 days"
+smartman generate "find all PDF files modified in the last 7 days"
 
 # OR
-python -m cli_llm_man.main generate "find all PDF files modified in the last 7 days"
+python -m smartman.main generate "find all PDF files modified in the last 7 days"
 ```
 
 ### Interactive Mode
 For continuous interaction with the tool:
 
 ```bash
-cli-llm-man interactive
+smartman interactive
 
 # Then type commands like:
 # summary ls

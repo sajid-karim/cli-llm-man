@@ -16,9 +16,9 @@ def run_tests():
 
     # Test commands
     commands = [
-        ["python", "-m", "cli_llm_man.main", "summary", "ls"],
-        ["python", "-m", "cli_llm_man.main", "example", "grep"],
-        ["python", "-m", "cli_llm_man.main", "generate", "find all PDF files in current directory"]
+        ["python", "-m", "smartman.main", "summary", "ls"],
+        ["python", "-m", "smartman.main", "example", "grep"],
+        ["python", "-m", "smartman.main", "generate", "find all PDF files in current directory"]
     ]
     
     for cmd in commands:

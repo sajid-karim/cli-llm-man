@@ -1,8 +1,8 @@
 import os
 import click
-from cli_llm_man import man_retriever
-from cli_llm_man.llm_interface import LLMInterface
-from cli_llm_man.config import load_config
+from smartman import man_retriever
+from smartman.llm_interface import LLMInterface
+from smartman.config import load_config
 from rich.console import Console
 from rich.panel import Panel
 from rich.markdown import Markdown

@@ -66,7 +66,7 @@ def mock_llm_interface():
     This fixture replaces the LLMInterface with a mock that returns
     predefined responses, ensuring tests don't make actual API calls.
     """
-    with patch('cli_llm_man.main.LLMInterface') as mock_llm:
+    with patch('smartman.main.LLMInterface') as mock_llm:
         instance = MagicMock()
         
         # Configure default return values
@@ -108,7 +108,7 @@ def mock_man_page():
     This fixture prevents actual system calls to retrieve man pages,
     instead returning predefined content based on the command.
     """
-    with patch('cli_llm_man.main.man_retriever.get_man_page') as mock_get:
+    with patch('smartman.main.man_retriever.get_man_page') as mock_get:
         def get_man_page_for_command(command):
             # Return predefined man pages for common commands or a default for unknown ones
             if command in TEST_DATA['commands']:

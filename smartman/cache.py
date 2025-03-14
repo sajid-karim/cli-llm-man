@@ -1,4 +1,4 @@
-# Add a new file: cli_llm_man/cache.py
+# Add a new file: smartman/cache.py
 
 import os
 import json
